@@ -1,3 +1,10 @@
+@php
+    $student_id = Session::get('student_id');
+    $student_info = DB::table('student_tbl')
+                ->where('student_id', $student_id)
+                ->first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 {{--{{asset('')}}--}}
@@ -79,7 +86,7 @@
                     <div class="dropdown-menu navbar-dropdown mail-notification" aria-labelledby="MailDropdown">
                         <a class="dropdown-item" href="{{URL::to('/viewprofile')}}">
                             <div class="sender-img">
-                                <img src="http://via.placeholder.com/47x47" alt="">
+                                <img src="{{URL::to($student_info->student_image)}}" alt="Image">
                                 <span class="badge badge-success">&nbsp;</span>
                             </div>
                             <div class="sender">
@@ -87,7 +94,7 @@
 
                             </div>
                         </a>
-                        <a class="dropdown-item" href="{{URL::to('/setting')}}">
+                        <a class="dropdown-item" href="{{URL::to('/student_setting')}}">
                             <div class="sender-img">
                                 <img src="http://via.placeholder.com/47x47" alt="">
                             </div>
@@ -121,11 +128,10 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <div class="user-info">
                     <div class="profile">
-                        <img src="http://via.placeholder.com/47x47" alt="">
+                        <img src="{{URL::to($student_info->student_image)}}" alt="Image">
                     </div>
                     <div class="details">
-                        <p class="user-name">Dave Mattew</p>
-                        <p class="designation">Developer</p>
+                        <p class="user-name">{{strtoupper($student_info->student_name)}}</p>
                     </div>
                 </div>
                 <ul class="nav">
@@ -135,9 +141,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/student_settings')}}">
+                        <a class="nav-link" href="{{URL::to('/student_setting')}}">
                             <i class="mdi mdi-puzzle menu-icon"></i>
-                            <span class="menu-title">Settings</span>
+                            <span class="menu-title">Setting</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -152,6 +158,7 @@
                             <span class="menu-title">Logout</span>
                         </a>
                     </li>
+
 
 
 

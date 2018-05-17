@@ -82,4 +82,28 @@ class AdminController extends Controller
             return Redirect::to('/');
         }
     }
+
+    //Student logout
+    public function student_logout(){
+        Session::put('student_name', null);
+        Session::put('student_id', null);
+
+        return Redirect::to('/');
+    }
+
+    //Student settings
+    public function studentsetting(){
+        $student_id = Session::get('student_id');
+        $student_description_view = DB::table('student_tbl')
+            ->select('*')
+            ->where('student_id', $student_id)
+            ->first();
+
+
+
+        $manage_description_student = view('student.student_setting')
+            ->with('student_description_profile', $student_description_view);
+        return view('student_layout')
+            ->with('student_setting', $manage_description_student);
+    }
 }

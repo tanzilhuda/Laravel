@@ -86,5 +86,14 @@ Route::get('/mba', 'MBAController@mba');
 
 Route::get('/allteacher', 'TeacherController@allteacher');
 
-//Student Settings (Individual)
+//Student Profile (Individual)
 Route::get('/student_profile', 'AllstudentsController@studentprofile');
+
+//Student Setting (Individual)
+Route::get('/student_setting', 'AdminController@studentsetting');
+
+//Update Student Individual
+Route::post('/student_own_update', 'AllstudentsController@studentownupdate');
+
+//Student Logout
+Route::get('/student_logout', 'AdminController@student_logout');

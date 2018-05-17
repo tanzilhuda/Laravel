@@ -103,6 +103,34 @@ class AllstudentsController extends Controller
 
     }
 
+    //Student Settings
+    public function studentsetting(){
+        return view('student.student_setting');
+    }
+
+    // Update student own or individual
+    public function studentownupdate(Request $request)
+    {
+        $student_id = Session::get('student_id');
+
+        $data = array();
+        $data['student_email'] = $request->student_email;
+        $data['student_phone'] = $request->student_phone;
+        $data['student_address'] = $request->student_address;
+        $data['student_password'] = $request->student_password;
+
+        DB::table('student_tbl')
+            ->where('student_id', $student_id)
+            ->update($data);
+
+        Session::put('exception', 'Student Update Successfully');
+        return redirect::to('/student_profile');
+    }
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *

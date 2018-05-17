@@ -19,7 +19,7 @@ return $values[$value];
                 <div class="card-body avatar">
                     <h2 class="card-title">Info</h2>
                     <img src="{{asset($student_profile->student_image)}}" alt="missing image" width="47" height="47">
-                    <p class="name">{{$student_profile->student_name}}</p>
+                    <p class="name">{{strtoupper($student_profile->student_name)}}</p>
                     <p class="email">ROLL: {{$student_profile->student_roll}}</p>
                     <p class="email">{{$student_profile->student_email}}</p>
                     <p class="email">{{$student_profile->student_phone}}</p>
@@ -27,11 +27,7 @@ return $values[$value];
             </div>
             <div class="card mb-4">
                 <div class="card-body overview">
-                    <ul class="achivements">
-                        <li><p>34</p><p>Projects</p></li>
-                        <li><p>23</p><p>Task</p></li>
-                        <li><p>29</p><p>Completed</p></li>
-                    </ul>
+
                     <div class="wrapper about-user">
                         <h2 class="card-title mt-4 mb-3">About</h2>
                         <p>The total information of the student is given below </p>
