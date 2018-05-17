@@ -27,9 +27,9 @@
 
                     <div class="form-group">
                         <textarea name="body" class="form-control" placeholder="your comment here"></textarea>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Add Comment</button>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add Comment</button>
                     </div>
                 </form>
 
